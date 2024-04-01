@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.views import View
 from .views_handler.home.home_handler import home_handler
 from .views_handler.docs_about.docs import docs_handler
-from .views_handler.auth.sign_in_handler import sign_in_handler
+from .views_handler.auth.sign_in_handler import sign_in_handler, make_login
 from .views_handler.auth.sign_up_handler import sign_up_handler
 import re
 
@@ -37,11 +37,4 @@ class SignIn(View):
         return sign_in_handler(request)
     
     def post(self, request):
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        user = authenticate(request, email=email, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('home')
-        else:
-            return render(request, 'users/sign_in.html', {'error': 'Invalid email or password'})
+        return make_login(request)

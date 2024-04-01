@@ -23,13 +23,14 @@
             <div class="form login">
                 <span class="title">Entrar com sua conta</span>
 
-                <form action="#">
+                <form method="post">
+                    {% csrf_token %}
                     <div class="input-field">
-                        <input type="text" placeholder="Email ou Nome de Usuário" required>
+                        <input type="text" name="email_or_user" placeholder="Email ou Nome de Usuário" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
                     <div class="input-field">
-                        <input type="password" class="password" placeholder="Senha" required>
+                        <input type="password" name="password" class="password" placeholder="Senha" required>
                         <i class="uil uil-lock icon"></i>
                         <i class="uil uil-eye-slash showHidePw"></i>
                     </div>
@@ -41,7 +42,7 @@
                     </div>
 
                     <div class="input-field button">
-                        <input type="button" value="Entrar">
+                        <input type="submit" value="Entrar">
                     </div>
                 </form>
 

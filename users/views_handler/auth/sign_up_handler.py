@@ -3,7 +3,7 @@ import re
 from django.contrib.auth import login, get_user_model
 
 main_page = "auth/sign_up.html"
-next_page = "home"
+next_page = "menu"
 
 
 def get_sign_up(request):

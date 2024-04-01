@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 
 main_page = "auth/sign_in.html"
-next_page = "home"
+next_page = "menu"
 
 
 def get_sign_in(request):

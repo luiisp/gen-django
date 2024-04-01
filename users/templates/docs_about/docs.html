@@ -12,6 +12,9 @@
         body{
             background-image: url("{% static 'assets/img/lines.png' %}") no-repeat center center/cover;
         }
+        .hero{
+          max-height: 60%;
+        }
 
     </style>
     <header class="header">
@@ -39,7 +42,7 @@
       <div class="hero">
         <h2>Docs Gen Template Django</h2>
         <p>
-            O Gen Django é um projeto Django que fornece uma estrutura inicial completa com operações CRUD (Create, Read, Update, Delete) para servir como um ponto de partida para outros projetos. Este documento descreve a estrutura do projeto, suas funcionalidades e como utilizá-lo.
+            O Gen Django é um projeto Django que fornece uma estrutura inicial completa com operações CRUD e Confirmação por email para servir como um ponto de partida para outros projetos. Este documento descreve a estrutura do projeto, suas funcionalidades e como utilizá-lo.
         </p>
 
         <div>
@@ -47,9 +50,11 @@
             <ul>
                 <li>CRUD de usuários</li>
                 <li>Interface Responsiva</li>
-                <li>Estrutura de projeto modular e escalavel</li>
+                <li>Confirmação de conta por email</li>
+                <li>Estrutura de projeto modular e escalável</li>
             </ul>
         </div>
+        
         <div class="buttons">
           <a href="https://github.com/luiisp/gen-django" class="learn">Repository</a>
         </div>

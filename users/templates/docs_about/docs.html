@@ -12,10 +12,11 @@
         body{
             background-image: url("{% static 'assets/img/lines.png' %}") no-repeat center center/cover;
         }
+
     </style>
     <header class="header">
       <nav class="navbar">
-        <h2 class="logo"><a href="#">Gen Django</a></h2>
+        <h2 class="logo"><a href="/">Gen Django</a></h2>
         <input type="checkbox" id="menu-toggle" />
         <label for="menu-toggle" id="hamburger-btn">
           <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
@@ -38,16 +39,22 @@
       <div class="hero">
         <h2>Docs Gen Template Django</h2>
         <p>
-            Gen-Django é um sistema de gerenciamento de usuários Server-Side totalmente customizado no Django e desenvolvido por LuisP. Este sistema pode ser utilizado como base para outros projetos. Official Repo: <a href="https://github.com/luiisp/gen-django">Luiisp/Gen Django</a>, Read Docs: <a href="/docs">Docs</a>
+            O Gen Django é um projeto Django que fornece uma estrutura inicial completa com operações CRUD (Create, Read, Update, Delete) para servir como um ponto de partida para outros projetos. Este documento descreve a estrutura do projeto, suas funcionalidades e como utilizá-lo.
         </p>
+
+        <div>
+            <h2>Features</h2>
+            <ul>
+                <li>CRUD de usuários</li>
+                <li>Interface Responsiva</li>
+                <li>Estrutura de projeto modular e escalavel</li>
+            </ul>
+        </div>
         <div class="buttons">
-          <a href="/signin" class="join">Faça Login</a>
-          <a href="/docs" class="learn">Leia mais</a>
+          <a href="https://github.com/luiisp/gen-django" class="learn">Repository</a>
         </div>
       </div>
-      <div class="img">
-        <img src="{% static 'assets/img/rocket.webp' %}" alt="rocket" />
-      </div>
+
     </section>
   </body>
 </html>

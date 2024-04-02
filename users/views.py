@@ -46,6 +46,12 @@ class SignIn(View):
     def post(self, request):
         return post_sign_in(request)
     
+class SignOut(LoginRequiredMixin,View):
+    login_url = 'home'
+
+    def post(self, request):
+        return redirect('home')
+    
 class Menu(LoginRequiredMixin,View):
     login_url = 'home'
     

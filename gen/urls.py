@@ -11,5 +11,6 @@ urlpatterns = [
     path('docs/', Docs.as_view(), name='docs'),
     path('signin/', SignIn.as_view(), name='signin'),
     path('signup/', SignUp.as_view(), name='signin'),
+    path('signout/', SignOut.as_view(), name='signout'),
     path("", Menu.as_view(), name='menu')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

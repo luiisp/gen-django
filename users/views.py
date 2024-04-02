@@ -1,15 +1,20 @@
 from django.views import View
-from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .views_handler.home.home_handler import home_handler
 from .views_handler.docs_about.docs_handler import docs_handler
 from .views_handler.auth.sign_in_handler import get_sign_in,post_sign_in
 from .views_handler.auth.sign_up_handler import get_sign_up,post_sign_up
 from .views_handler.pages.menu_handler import menu_handler
+from .utils.main import only_not_logged
 
 # views manager
 
+
 class Home(View):
+    def dispatch(self, request, *args, **kwargs): # only user not looged
+        return only_not_logged(request, next_page='menu') or super().dispatch(request, *args, **kwargs)
+
     def get(self, request):
         return home_handler(request)
     
@@ -20,6 +25,9 @@ class Docs(View):
     
 
 class SignUp(View):
+    def dispatch(self, request, *args, **kwargs):
+        return only_not_logged(request, next_page='menu') or super().dispatch(request, *args, **kwargs)
+
     def get(self, request):
         return get_sign_up(request)
     
@@ -28,6 +36,10 @@ class SignUp(View):
     
     
 class SignIn(View):
+    def dispatch(self, request, *args, **kwargs):
+        return only_not_logged(request, next_page='menu') or super().dispatch(request, *args, **kwargs)
+
+
     def get(self, request):
         return get_sign_in(request)
         

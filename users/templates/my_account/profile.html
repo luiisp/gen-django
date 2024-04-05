@@ -5,22 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gen | Perfil de {{ request.user }}</title>
-    <link rel="stylesheet" href="{% static 'css/home/home.css' %}?v1">
+    <link rel="stylesheet" href="{% static 'css/my_account/profile.css' %}?v1">
   </head>
   <body>
-    <style>
-        body{
-            background-image: url("{% static 'assets/img/lines.png' %}") no-repeat center center/cover;
-            text-align: center;
-        }
-        .account-infos{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 10px;
-        }
-    </style>
     <header class="header">
       <nav class="navbar">
         <h2 class="logo"><a href="/">Gen Django</a></h2>
@@ -43,18 +30,39 @@
       <div class="hero">
 
         <div class="account-infos">
-            <h1>Informações da Conta</h1>
-            <div>
-                <p>Nome: {{ request.user }}</p>
-                <p>Email: {{ request.user.email }}</p>
-                <p>Último Login: {{ request.user.last_login }}</p>
-                <p>Ativo: {% if request.user.is_active %} Sim {% else %} Não {% endif %}</p>
-    
+            <div class="account-header">
+                <div class="profile-picture"></div>
+                <div>
+                    <h1>{{ request.user }}</h1>
+                    <p>Membro desde {{ request.user.date_joined }}</p>
+                    <p>{% if profile.email_verified %} <span style="color: rgb(127, 255, 161);">Email Verificado</span> {% else %} <span style="color: rgb(246, 6, 66);">Email Não Verificado</span> {% endif %} </p>
+                </div>
+ 
+            </div>
+            
+            
+            <div class="infos">
+                <div>
+                    <p>Telefone</p>
+                    <p>{{ profile.telephone|default_if_none:"Não Cadastrado" }}</p>
+                </div>
+                
+                <div>
+                    <p>Email</p>
+                    <p>{{ request.user.email|default_if_none:"Não Cadastrado" }}</p>
+                </div>
+
+                <div>
+                    <p>Aniversário</p>
+                    <p>{{ profile.birthday|default_if_none:"Não Cadastrado" }}</p>
+                </div>
+                
+
             </div>
 
         </div>
         <div class="buttons">
-            <a href="settings" class="join">Gerenciar Dados da Conta</a>
+            <a href="edit" class="join">Editar Dados da Conta</a>
 
           </div>
       </div>

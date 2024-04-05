@@ -4,18 +4,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gen | Menu</title>
+    <title>Gen | Perfil de {{ request.user }}</title>
     <link rel="stylesheet" href="{% static 'css/home/home.css' %}?v1">
   </head>
   <body>
     <style>
         body{
             background-image: url("{% static 'assets/img/lines.png' %}") no-repeat center center/cover;
+            text-align: center;
+        }
+        .account-infos{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
         }
     </style>
     <header class="header">
       <nav class="navbar">
-        <h2 class="logo"><a href="#">Gen Django</a></h2>
+        <h2 class="logo"><a href="/">Gen Django</a></h2>
         <input type="checkbox" id="menu-toggle" />
         <label for="menu-toggle" id="hamburger-btn">
           <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
@@ -28,17 +36,27 @@
           <li><a href="https://github.com/luiisp/gen-django">Official Repo</a></li>
           <li><a href="/contact-us">Contact Us</a></li>
         </ul>
-        <div class="buttons">
-          <a href="/myaccount" class="signup">Gerenciar minha Conta</a>
-        </div>
+
       </nav>
     </header>
     <section class="hero-section">
       <div class="hero">
-        <h2>Olá {{ request.user }}</h2>
-        <p>
-          Bem-vindo à página principal do app. Esta é a porta de entrada para explorar tudo o que nosso web site tem a oferecer. Esperamos que você encontre aqui tudo o que precisa e tenha uma experiência incrível conosco! Repo: <a href="https://github.com/luiisp/gen-django">Luiisp/Gen Django</a>, Read Docs: <a href="/docs">Docs</a>
-        </p>
+
+        <div class="account-infos">
+            <h1>Informações da Conta</h1>
+            <div>
+                <p>Nome: {{ request.user }}</p>
+                <p>Email: {{ request.user.email }}</p>
+                <p>Último Login: {{ request.user.last_login }}</p>
+                <p>Ativo: {% if request.user.is_active %} Sim {% else %} Não {% endif %}</p>
+    
+            </div>
+
+        </div>
+        <div class="buttons">
+            <a href="settings" class="join">Gerenciar Dados da Conta</a>
+
+          </div>
       </div>
     </section>
   </body>

@@ -7,6 +7,7 @@ from .views_handler.auth.sign_in_handler import get_sign_in,post_sign_in
 from .views_handler.auth.sign_up_handler import get_sign_up,post_sign_up
 from .views_handler.pages.menu_handler import menu_handler
 from .utils.main import only_not_logged
+from .views_handler.my_account.my_account import get_my_account
 
 # views manager
 
@@ -57,3 +58,9 @@ class Menu(LoginRequiredMixin,View):
     
     def get(self, request):
         return menu_handler(request)
+    
+class MyAccount(LoginRequiredMixin,View):
+    login_url = 'home'
+    
+    def get(self, request):
+        return get_my_account(request)

@@ -14,4 +14,4 @@ urlpatterns = [
     path('signout/', SignOut.as_view(), name='signout'),
     path('myaccount/', MyAccount.as_view(), name='myaccount'),
     path("", Menu.as_view(), name='menu')
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

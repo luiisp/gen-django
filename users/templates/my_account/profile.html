@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="{% static 'css/my_account/profile.css' %}?v1">
   </head>
   <body>
+    <style>
+        .profile-picture{
+            background-image: url("{{ profile.picture.url }}");
+
+        }
+    </style>
     <header class="header">
       <nav class="navbar">
         <h2 class="logo"><a href="/">Gen Django</a></h2>

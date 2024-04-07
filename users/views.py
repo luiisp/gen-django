@@ -8,6 +8,8 @@ from .views_handler.auth.sign_up_handler import get_sign_up,post_sign_up
 from .views_handler.pages.menu_handler import menu_handler
 from .utils.main import only_not_logged
 from .views_handler.my_account.my_account import get_my_account
+from .views_handler.my_account.edit_account import get_edit_my_account
+
 
 # views manager
 
@@ -64,3 +66,11 @@ class MyAccount(LoginRequiredMixin,View):
     
     def get(self, request):
         return get_my_account(request)
+class EditAccount(LoginRequiredMixin,View):
+    login_url = 'home'
+    
+    def get(self, request):
+        return get_edit_my_account(request)
+    
+    def post(self, request):
+        return redirect('myaccount')

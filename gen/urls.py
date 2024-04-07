@@ -13,5 +13,6 @@ urlpatterns = [
     path('signup/', SignUp.as_view(), name='signin'),
     path('signout/', SignOut.as_view(), name='signout'),
     path('myaccount/', MyAccount.as_view(), name='myaccount'),
+    path('myaccount/edit/', EditAccount.as_view(), name='editaccount'),
     path("", Menu.as_view(), name='menu')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
